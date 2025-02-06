@@ -1,11 +1,29 @@
+:root{
+    --clr-background: #F2F2F2;
+    --clr-background2: #d7d7de;
+    --clr-text: #1C1D26;
+    --clr-white-text: #fefefe;
+    --clr-fill: #555673;
+    --clr-fill2: #afb1c2;
+    --clr-accent1: #30348C;
+    --clr-accent2: #131FF2;
+}
+body{
+    box-sizing: border-box;
+}
 *{
     margin: 0;
     border: 0;
-
-    font-family: Century Gothic;
 }
 body{
-    background-image: linear-gradient(white, rgb(189, 190, 224));
+    background-image: linear-gradient(var(--clr-background), var(--clr-background2));
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Century Gothic';
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 header{
     height: 100px;
@@ -13,7 +31,7 @@ header{
 
     display: flex;
     justify-content: space-between;
-    margin: 0 auto 0 auto;
+    /* margin: 0 auto 0 auto; */
     font-weight: bold;
 }
 header >*{
@@ -26,7 +44,7 @@ header >*{
 }
 .acc_icon button{
     width: 50px; height: 50px;
-    background-color: rgb(80, 80, 103);
+    background-color: var(--clr-fill);
     padding: 0;
 }
 .acc_icon img{
@@ -37,7 +55,7 @@ header >*{
     border-radius: 5px;
 }
 .acc_icon button:nth-child(2){
-    background-image: linear-gradient(rgb(179, 187, 202), rgb(170, 166, 196));
+    background-image: linear-gradient(var(--clr-accent1), var(--clr-accent2));
 }
 .navbar{
     justify-content: center;
@@ -46,7 +64,7 @@ header >*{
 }
 .navbar a{
     padding: 0 0 10px 0;
-    color: black;
+    color: var(--clr-text);
     text-decoration: none;
 }
 .navbar a:hover{
@@ -59,22 +77,20 @@ header >*{
 .log-in button{
     width: 120px; height: 2rem;
     border-radius: 20px;
-    background-color: rgba(240, 248, 255, 0);
-    border: 2px solid rgb(89, 93, 114);
+    background-color: rgba(0, 136, 255, 0);
+    border: 2px solid var(--clr-fill);
     font-weight: bold;
-    color:rgb(45, 45, 62);
+    color: var(--clr-text);
     font-size: .9rem;
 }
 .log-in :nth-child(2){
     border: 0;
-    background-color:rgb(80, 80, 103);
-    color:rgb(222, 217, 229);
+    background-color: var(--clr-fill);
+    color: var(--clr-background);
 }
 .hero{
     position: relative;
     width: 90vw; height: 300px;
-    margin-left: auto;
-    margin-right: auto;
     margin-top: 50px;
 
     background-image: url(assets/BackgroundArt2.png);
@@ -86,47 +102,76 @@ header >*{
     border-radius: 40px;
 }
 .hero img{
-    height: 120%;
+    height: 130%;
     position: absolute;
     bottom: 0;
-    right: 10%;
+    right: 5%;
 }
 .hero .introduction{
-    color: #fefefe;
+    padding: 20px;
+    color: var(--clr-white-text);
+    width: 40vw;
 }
-.bottom{
-    margin: 50px auto 0 auto;
+.hero h2{
+    margin-bottom: 10px;
+}
+.bottom_section{
+    margin-top: 60px;
     width: 90vw;
-
-    display: grid;
-    grid-template-rows: repeat(2, 1fr);
+    height: 400px;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    padding: 10px;
-    gap: 10px;
-
-    background-color: aqua;
 }
-.artwork img{
-    width: 30%;
-}
-.icons img{
-    width: 100%;
-}
-.bottom .first_box{
+.bottom_section .first_box{
     display: grid;
     grid-template-columns: 3fr 2fr;
-    background-color: aliceblue;
 }
-.bottom .second_box{
+.first_box > div{
+}
+.first_box button{
+    height: 50px;
+    align-self: center;
+    border-radius: 20px;
+    box-shadow: var(--clr-fill2) 5px 5px 10px;
+    
+}
+.first_box div{
+    padding: 10px;
+}
+.artworks{
     display: grid;
-    grid-template-columns: 2fr 3fr;
-    background-color: aliceblue;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
+    gap: 20px;
+    grid-template-areas:
+    'head head'
+    'left right'
+    'button button';
+
 }
-.hero_info{
+.artworks h2{
+    grid-area: head;
+    padding-left: 10px;
+}
+.artworks img{
+    width: 95%;
+    justify-self: center;
+    align-self: center;
+    border-radius: 20px;
+}
+.artworks img:nth-child(1){
+    grid-area: left;
+}
+.artworks img:nth-child(2){
+    grid-area: right;
+}
+.artworks button{
+    grid-area: button;
+    background-color: var(--clr-accent2);
+}
+.searches{
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
-    gap: 5px;
+    grid-template-rows: repeat(6, 1fr);
 }
-.hero_info .info_art{
-    background-color: gray;
+.searches h2{
+    padding-left: 10px;
 }
